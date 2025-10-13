@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>{{ .Title }}</title>
+  {{ $target := .Permalink }}
+  {{ with .Params.url }}{{ $target = . }}{{ end }}
+  {{ with .Params.redirectURL }}{{ $target = . }}{{ end }}
+    <meta http-equiv="refresh" content="0; url={{ $target }}">
+    <link rel="canonical" href="{{ $target }}">
+  </head>
+  <body>
+    <p>Redirecting to <a href="{{ $target }}">{{ $target }}</a>…</p>
+  </body>
+</html>
