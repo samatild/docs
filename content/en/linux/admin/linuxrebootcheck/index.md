@@ -1,3 +1,11 @@
+---
+title: Linux Boot/Shutdown Quick-Analyzer
+linkTitle: Boot/Shutdown Analyzer
+description: Parse Linux boot and shutdown events from system and serial console logs.
+weight: 10
+type: docs
+---
+
 ## What is Linux Boot/Shutdown Quick-Analyzer and why do you need it?
 
 The Linux Boot/Shutdown Quick-Analyzer is a Python script that analyzes Linux boot and shutdown logs.
@@ -6,7 +14,7 @@ The Linux Boot/Shutdown Quick-Analyzer is a Python script that analyzes Linux bo
 
 It makes it easy to find boot and shutdown events in system logs, providing information such as the number of boot and shutdown events, along with the timestamp, filename, and line number for each event.
 
---- 
+---
 
 ## How to run it
 
@@ -14,11 +22,11 @@ It makes it easy to find boot and shutdown events in system logs, providing info
 
 2. To use the script, navigate to the directory containing your logs (usually /var/log) and run the following command:
 
-```bash 
+```bash
 # Make sure you are working inside your system logs dir
 cd /var/log
 
-# Exucute the script
+# Execute the script
 curl https://raw.githubusercontent.com/samatild/linuxrebootcheck/main/linuxrebootcheck.py | python3
 ```
 ---
@@ -40,4 +48,3 @@ Overall, the Linux Boot/Shutdown Quick-Analyzer is a useful tool for analyzing L
 
 ## Source
 🔗 [samatild/linuxrebootcheck](https://github.com/samatild/linuxrebootcheck)
-

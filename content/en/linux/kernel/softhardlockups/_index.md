@@ -3,6 +3,7 @@ title: Soft and Hard Lockups
 linkTitle: Soft vs Hard Lockups
 description: Detect, troubleshoot, and simulate Linux kernel soft and hard lockups with the watchdog.
 weight: 10
+type: docs
 ---
 
 ## Introduction

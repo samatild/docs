@@ -1,4 +1,10 @@
-# Profile Fetcher for Linux Azure VM
+---
+title: Profile Fetcher for Linux Azure VM
+linkTitle: VM Profile Fetcher
+description: Collect Azure VM instance metadata in a single, readable summary.
+weight: 10
+type: docs
+---
 
 **GitHub Repository:** [https://github.com/samatild/azvmprofilefetcher](https://github.com/samatild/azvmprofilefetcher)
 
