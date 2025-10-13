@@ -71,6 +71,8 @@ outputs:
   section: [HTML, print, RSS]
 
 params:
+    
+  mainSections: ["docs"]
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
     taxonomyCloud: [tags, categories]
