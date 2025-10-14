@@ -1,0 +1,36 @@
+/*
+  Improve visibility of the code block copy button when using a dark
+  syntax highlighting theme on an otherwise light site theme.
+*/
+
+// Target Docsy's click-to-copy button inside highlighted code blocks
+.td-content .highlight .td-click-to-copy,
+.td-content pre.chroma .td-click-to-copy {
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.td-content .highlight .td-click-to-copy:hover,
+.td-content pre.chroma .td-click-to-copy:hover,
+.td-content .highlight .td-click-to-copy:focus,
+.td-content pre.chroma .td-click-to-copy:focus {
+  background-color: #fff;
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+// Ensure the copy icon inherits the improved contrast
+.td-content .highlight .td-click-to-copy .fas,
+.td-content pre.chroma .td-click-to-copy .fas {
+  color: inherit;
+}
+
+// Optional: ensure the button sits above code content if overlapping
+.td-content .highlight .td-click-to-copy,
+.td-content pre.chroma .td-click-to-copy {
+  z-index: 2;
+}
+
+
