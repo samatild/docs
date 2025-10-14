@@ -39,7 +39,7 @@ sudo cp -a /etc/default/grub /etc/default/grub.bak.$(date +%Y%m%d-%H%M%S)
 
 Replace or add the following settings. The kernel command line can vary slightly by distro (see next section), but the following is a solid baseline for Azure VMs:
 
-```conf
+```bash
 GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
 GRUB_DEFAULT=saved
