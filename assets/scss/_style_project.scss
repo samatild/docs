@@ -4,33 +4,29 @@
 */
 
 // Target Docsy's click-to-copy button inside highlighted code blocks
-.td-content .highlight .td-click-to-copy,
-.td-content pre.chroma .td-click-to-copy {
-  background-color: rgba(255, 255, 255, 0.92);
-  color: #111;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-}
-
-.td-content .highlight .td-click-to-copy:hover,
-.td-content pre.chroma .td-click-to-copy:hover,
-.td-content .highlight .td-click-to-copy:focus,
-.td-content pre.chroma .td-click-to-copy:focus {
-  background-color: #fff;
-  color: #000;
-  border-color: rgba(0, 0, 0, 0.25);
-}
-
-// Ensure the copy icon inherits the improved contrast
-.td-content .highlight .td-click-to-copy .fas,
-.td-content pre.chroma .td-click-to-copy .fas {
-  color: inherit;
-}
-
-// Optional: ensure the button sits above code content if overlapping
-.td-content .highlight .td-click-to-copy,
-.td-content pre.chroma .td-click-to-copy {
+// Match the exact DOM: ... div.highlight pre.chroma div.click-to-copy button.fas.fa-copy.btn.btn-sm.td-click-to-copy
+.td-content .highlight pre.chroma .click-to-copy > button.td-click-to-copy,
+.td-content pre.chroma .click-to-copy > button.td-click-to-copy {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  color: #111 !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+  opacity: 1 !important; // some themes reduce opacity until hover
   z-index: 2;
+}
+
+.td-content .highlight pre.chroma .click-to-copy > button.td-click-to-copy:hover,
+.td-content pre.chroma .click-to-copy > button.td-click-to-copy:hover,
+.td-content .highlight pre.chroma .click-to-copy > button.td-click-to-copy:focus,
+.td-content pre.chroma .click-to-copy > button.td-click-to-copy:focus {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.28) !important;
+}
+
+// If Font Awesome classes are on the button itself, ensure color applies
+button.td-click-to-copy.fas.fa-copy {
+  color: inherit !important;
 }
 
 
