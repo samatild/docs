@@ -4,6 +4,7 @@ description: How to automatically enable and configure kdump crash collection on
 date: 2025-10-13
 type: docs
 author: Samuel Matildes
+tags: [linux, kernel, kdump, vmcore, crash-dump, kernel-panic, oom, memory-management, debugging, postmortem, makedumpfile, crash-utility]
 ---
 
 <i class="fas fa-microchip" aria-hidden="true"></i> Automatic Enablement of Kernel Crash Dump Collection with kdump-enabler
