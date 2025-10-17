@@ -13,6 +13,8 @@ tags: [linux, benchmarking, performance, stress-test, cpu, memory, disk, network
 
 [`Tux Toaster`](https://github.com/samatild/tuxtoaster) is an all-in-one performance toolkit for Linux. It triggers various load tests ("toasters") to help you evaluate the performance and stability of your system across CPU, memory, disk, and network. It offers an interactive terminal menu with multi-select support and clear, stoppable workloads.
 
+![Preview](images/tuxtoaster_preview.gif)
+
 ## When to use it
 
 - Hardware bring-up and burn-in
