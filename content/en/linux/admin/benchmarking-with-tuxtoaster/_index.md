@@ -7,6 +7,17 @@ author: Samuel Matildes
 tags: [linux, benchmarking, performance, stress-test, cpu, memory, disk, network]
 ---
 
+<p>
+  <a href="https://github.com/samatild/tuxtoaster" target="_blank" rel="noopener">
+    <i class="fab fa-github" aria-hidden="true"></i> GitHub
+  </a>
+  &nbsp;•&nbsp;
+  <a href="https://pypi.org/project/tuxtoaster" target="_blank" rel="noopener">
+    <i class="fab fa-python" aria-hidden="true"></i> PyPI
+  </a>
+  &nbsp;
+</p>
+
 <i class="fas fa-tachometer-alt" aria-hidden="true"></i> Benchmark smarter, not harder — with Tux Toaster.
 
 ## What is Tux Toaster?
@@ -28,7 +39,6 @@ tags: [linux, benchmarking, performance, stress-test, cpu, memory, disk, network
 Tux Toaster targets Linux and relies on:
 
 - Python 3.8+
-- Python package: `psutil`
 - System utilities: `dd`, `lsblk`, `taskset`, `pkill`
 - Internet connectivity for network tests
 
@@ -36,25 +46,30 @@ Optional/privileged:
 
 - Root privileges for the "Unclean GC" runaway memory test to adjust `oom_score_adj`
 
-Install `psutil` if needed:
-
-```bash
-pip3 install psutil
-```
-
 ## Installation
 
-Clone and run the toolkit locally:
+Install from PyPI (recommended):
 
 ```bash
-# Clone the repository
+pip install tuxtoaster
+tuxtoaster
+```
+
+If your shell cannot find `tuxtoaster`, add the install directory to PATH:
+
+```bash
+# User installs (scripts in ~/.local/bin)
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Alternative: install from source (editable):
+
+```bash
 git clone https://github.com/samatild/tuxtoaster.git
-
-# Navigate to the project directory
 cd tuxtoaster
-
-# Run the main Python script (interactive menu)
-python3 tuxtoaster.py
+pip install -U pip setuptools wheel
+pip install -e .
+tuxtoaster
 ```
 
 Menu controls:
@@ -126,6 +141,7 @@ Tips:
 ## Learn more
 
 - Project: [`github.com/samatild/tuxtoaster`](https://github.com/samatild/tuxtoaster)
+- PyPI: [`pypi.org/project/tuxtoaster`](https://pypi.org/project/tuxtoaster)
 - Issues/feedback: open a GitHub issue with your logs and command line
 
 ---
