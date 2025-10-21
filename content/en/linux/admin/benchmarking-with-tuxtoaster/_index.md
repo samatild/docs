@@ -114,8 +114,22 @@ From the main menu, pick a category and test(s) to run.
 - Network OUT (Single) — UDP to `8.8.8.8:53`
 - Network IN (Multiple) — N parallel downloads
 - Network OUT (Multiple) — N parallel UDP senders
-- Socket Exhaustion (under development)
-- Simulate Latencies/Disconnects/Packet Loss (under development)
+- Socket Exhaustion — exhaust process/kernel sockets or reserve listener port ranges
+- Simulate Latencies — local TCP proxy that injects base latency and jitter (check project Git for instructions)
+
+### Multiple tests at once
+
+Run CPU, Memory, Network, and Disk concurrently:
+
+- From the main menu: Multiple → select items with SPACE → Enter to start.
+- Press Enter to stop all running tests.
+
+Behaviors:
+
+- CPU: one busy process per core (like All Cores)
+- Memory: threads allocate 500 MB chunks repeatedly (requires `psutil`)
+- Network: continuous download of `https://proof.ovh.net/files/100Mb.dat`
+- Disk: alternating `dd` read/write with 4MB direct I/O under a temp file
 
 ## Reading results
 
