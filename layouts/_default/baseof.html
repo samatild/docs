@@ -1,0 +1,14 @@
+{{- define "head" -}}
+<head>
+  {{ .Hugo.Generator }}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <!-- Custom SVG favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicons/favico.svg">
+
+  {{ partial "head-css.html" . }}
+  {{ partial "head-js.html" . }}
+</head>
+{{- end -}}

@@ -1,7 +1,23 @@
 /*
-  Improve visibility of the code block copy button when using a dark
-  syntax highlighting theme on an otherwise light site theme.
+  Custom theme enhancements for better light/dark mode experience
 */
 
+// Improve code block styling and copy button visibility
+.highlight {
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
 
+[data-bs-theme="dark"] .highlight {
+  background-color: $dark-bg;
+  border: 1px solid $dark-border;
+}
 
+[data-bs-theme="light"] .highlight {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+// Using DocSy's default styling - keeping only essential customizations
+
+// Using DocSy's default dark theme - no custom overrides

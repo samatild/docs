@@ -18,6 +18,9 @@ enableGitInfo: true
 # Comment out to disable taxonomies in Docsy
 # disableKinds: [taxonomy]
 
+# Try to disable DocSy's default favicon generation
+# disableKinds: [favicon]
+
 # You can add your own taxonomies
 taxonomies:
   tag: tags
@@ -137,16 +140,19 @@ params:
     # Set to true to disable breadcrumb navigation.
     breadcrumb_disable: false
     # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
-    navbar_logo: true
+    navbar_logo: false
     # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
     navbar_translucent_over_cover_disable: false
     # Enable to show the side bar menu in its compact state.
     sidebar_menu_compact: false
     # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
     sidebar_search_disable: false
-
-
-    showLightDarkModeMenu: false
+    # Enable the dark/light mode toggle
+    showLightDarkModeMenu: true
+    # Show the version of the site in the navbar
+    navbar_version: false
+    # Show the repository link in the navbar
+    navbar_repo_url: true
 
     # Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
     # This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
