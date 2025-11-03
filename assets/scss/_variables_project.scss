@@ -10,7 +10,8 @@ $primary: #181818;
 $secondary: #6E8AA4;
 
 // Custom font family for the entire site
-$font-family-base: "Ubuntu", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base: -apple-system, BlinkMacSystemFont, "Inter", "Vazirmatn", ui-sans-serif, system-ui, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$bs-body-font-family: -apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 
 // Custom font size for the entire site
 $font-size-base: 1rem; // 16px

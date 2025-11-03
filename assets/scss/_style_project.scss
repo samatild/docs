@@ -2,6 +2,11 @@
   Custom theme enhancements for better light/dark mode experience
 */
 
+// Custom font family override
+:root {
+  --bs-body-font-family: -apple-system, BlinkMacSystemFont, Inter, Vazirmatn, ui-sans-serif, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
 // Improve code block styling and copy button visibility
 .highlight {
   border-radius: 0.375rem;
