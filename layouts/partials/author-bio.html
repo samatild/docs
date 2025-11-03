@@ -1,0 +1,21 @@
+{{- if .Params.author -}}
+<footer class="article-author-footer" style="margin-top: 3rem; padding-top: 1.5rem; padding-bottom: 1rem; border-top: 1px solid rgba(110, 138, 164, 0.3);">
+  <h3 style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600; color: #6E8AA4;">About the Author</h3>
+  <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+    <div style="flex-shrink: 0;">
+      <img src="/JCY69NwI_400x400.jpg" alt="{{ .Params.author }}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(110, 138, 164, 0.3);">
+    </div>
+    <div style="flex: 1; min-width: 200px;">
+      <p style="margin: 0; color: inherit; line-height: 1.5; font-size: 0.9rem;">
+        <strong style="color: #6E8AA4;">{{ .Params.author }}</strong>
+        {{- if .Params.author_bio -}}
+        <span style="opacity: 0.8;"> — {{ .Params.author_bio }}</span>
+        {{- else -}}
+        <span style="opacity: 0.8;"> — Senior Escalation Engineer specializing in Linux kernel debugging, system performance optimization, and Azure infrastructure. Expert in postmortem analysis using vmcore dumps, CPU profiling, memory management, and low-level system troubleshooting. Maintains deep knowledge of kernel internals, system calls, privilege levels, and hardware-software interactions. Passionate about sharing technical knowledge through detailed documentation and contributing to the Linux community.</span>
+        {{- end -}}
+      </p>
+    </div>
+  </div>
+</footer>
+{{- end -}}
+
