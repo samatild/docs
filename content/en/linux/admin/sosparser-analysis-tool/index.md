@@ -26,9 +26,8 @@ tags: [linux, diagnostics, sosreport, supportconfig, troubleshooting, system-ana
 
 Whether you're a system administrator, DevOps engineer, or support technician dealing with complex Linux environments, SOSParser provides an automated approach to understanding what's happening inside your systems.
 
-<p align="center">
-  <img src="./img/sosparser.gif" alt="SOSParser screenshot: Animated workflow of analysis and reporting" style="max-width: 50%; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.07); margin: 1.5rem 0;">
-</p>
+<img src="./img/sosparser.gif" alt="SOSParser screenshot: Animated workflow of analysis and reporting" style="max-width: 100%; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.07); margin: 1.5rem 0;">
+
 
 
 ## The Problem SOSParser Solves
