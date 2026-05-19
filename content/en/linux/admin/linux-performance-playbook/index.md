@@ -5,6 +5,7 @@ date: 2026-05-19
 type: docs
 author: Samuel Matildes
 tags: [linux, performance, troubleshooting, cheatsheet, sysstat, vmstat, iostat, pidstat, sar, strace, perf, playbook]
+images: [linux-perf.png]
 ---
 
 <i class="fas fa-tachometer-alt" aria-hidden="true"></i> A field-ready reference for Linux performance investigations — keep it open in a second terminal.
