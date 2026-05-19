@@ -23,16 +23,7 @@ Linux performance problems split cleanly into **two very different investigation
 If you can't reproduce it, **do not** keep staring at `top`. Stop, deploy collectors, walk away, and analyse later. Otherwise you'll miss the event every single time.
 {{< /callout >}}
 
-{{< mermaid >}}
-flowchart TD
-    A["Is the symptom happening right now?"] -->|Yes| B["Track A — Live Triage"]
-    A -->|No| C{"Can you reproduce it on demand?"}
-    C -->|Yes| D["Track A — reproduce, then triage"]
-    C -->|No| E["Track B — Background Collection"]
-    B --> F["Drill into the bottleneck<br/>CPU / Mem / I/O / Net"]
-    D --> F
-    E --> G["Analyse logs after the next event"]
-{{< /mermaid >}}
+![Decision flow: live triage vs. background collection](workflow.png)
 
 ---
 
