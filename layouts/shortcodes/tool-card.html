@@ -1,0 +1,17 @@
+{{- /*
+  Tool showcase card.
+  Usage:
+    {{< tool-card name="Tux Toaster" image="/images/tools/tuxtoaster.png" repo="https://github.com/samatild/tuxtoaster" desc="..." >}}
+*/ -}}
+{{- $name  := .Get "name" -}}
+{{- $image := .Get "image" -}}
+{{- $repo  := .Get "repo" -}}
+{{- $desc  := .Get "desc" -}}
+{{- $href  := .Get "href" | default $repo -}}
+<a class="kb-tool" href="{{ $href }}" target="_blank" rel="noopener">
+  <div class="kb-tool__img" style="background-image:url('{{ $image }}');"></div>
+  <div class="kb-tool__body">
+    <div class="kb-tool__name">{{ $name }} <i class="fab fa-github" aria-hidden="true"></i></div>
+    {{- with $desc }}<div class="kb-tool__desc">{{ . }}</div>{{ end }}
+  </div>
+</a>

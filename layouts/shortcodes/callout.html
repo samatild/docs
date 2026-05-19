@@ -1,0 +1,35 @@
+{{- /*
+  Callout shortcode.
+  Usage:
+    {{< callout type="tip" >}}Body markdown here{{< /callout >}}
+    {{< callout type="rule" title="Rule of thumb" >}}...{{< /callout >}}
+  Supported types: tip, rule, warning, danger, note, info
+*/ -}}
+{{- $type  := .Get "type" | default "note" -}}
+{{- $title := .Get "title" -}}
+{{- $icon  := dict
+    "tip"     "fa-lightbulb"
+    "rule"    "fa-bullseye"
+    "warning" "fa-triangle-exclamation"
+    "danger"  "fa-skull-crossbones"
+    "note"    "fa-circle-info"
+    "info"    "fa-circle-info"
+-}}
+{{- $defaultTitle := dict
+    "tip"     "Tip"
+    "rule"    "Rule of thumb"
+    "warning" "Warning"
+    "danger"  "Danger"
+    "note"    "Note"
+    "info"    "Info"
+-}}
+{{- if not $title -}}{{- $title = index $defaultTitle $type -}}{{- end -}}
+<div class="kb-callout kb-callout--{{ $type }}">
+  <div class="kb-callout__title">
+    <i class="fas {{ index $icon $type }}" aria-hidden="true"></i>
+    <span>{{ $title }}</span>
+  </div>
+  <div class="kb-callout__body">
+    {{ .Inner | .Page.RenderString }}
+  </div>
+</div>

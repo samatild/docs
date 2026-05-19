@@ -18,40 +18,20 @@ Linux performance problems split cleanly into **two very different investigation
 | The problem is happening **right now** (or you can reproduce it on demand) | **Track A — Live Triage** | Interactive tools, sample at 1s intervals, follow the bottleneck |
 | The problem is **intermittent / random** (happens overnight, once a week, only under load you can't reproduce) | **Track B — Background Collection** | Arm continuous loggers *before* the next occurrence, then mine the logs afterwards |
 
-> **Rule:** If you can't reproduce it, **do not** keep staring at `top`. Stop, deploy collectors, walk away, and analyse later. Otherwise you'll miss the event every single time.
+{{< callout type="rule" >}}
+If you can't reproduce it, **do not** keep staring at `top`. Stop, deploy collectors, walk away, and analyse later. Otherwise you'll miss the event every single time.
+{{< /callout >}}
 
-A decision flow:
-
-```text
-                ┌─────────────────────────────┐
-                │  Is the symptom happening   │
-                │        right now?           │
-                └──────────────┬──────────────┘
-                               │
-                 ┌─────────────┴─────────────┐
-                 │                           │
-                YES                          NO
-                 │                           │
-                 ▼                           ▼
-         ┌───────────────┐         ┌────────────────────┐
-         │  TRACK A      │         │  Can you reproduce │
-         │  Live Triage  │         │  it on demand?     │
-         └───────┬───────┘         └─────────┬──────────┘
-                 │                           │
-                 │                  ┌────────┴────────┐
-                 │                  │                 │
-                 │                 YES                NO
-                 │                  │                 │
-                 │                  ▼                 ▼
-                 │           ┌─────────────┐   ┌──────────────────┐
-                 │           │ TRACK A     │   │ TRACK B          │
-                 │           │ + repro it  │   │ Background       │
-                 │           └─────────────┘   │ Collection       │
-                 │                             └──────────────────┘
-                 ▼
-       Drill into the bottleneck
-       (CPU / Mem / I/O / Net)
-```
+{{< mermaid >}}
+flowchart TD
+    A["Is the symptom happening right now?"] -->|Yes| B["Track A — Live Triage"]
+    A -->|No| C{"Can you reproduce it on demand?"}
+    C -->|Yes| D["Track A — reproduce, then triage"]
+    C -->|No| E["Track B — Background Collection"]
+    B --> F["Drill into the bottleneck<br/>CPU / Mem / I/O / Net"]
+    D --> F
+    E --> G["Analyse logs after the next event"]
+{{< /mermaid >}}
 
 ---
 
@@ -66,7 +46,9 @@ It is particularly powerful for **Track B (Background Collection)** because it:
 - Handles **long unattended runs** without filling the disk
 - Produces output that is easy to diff between "good" and "bad" windows
 
-> <i class="fas fa-lightbulb" aria-hidden="true"></i> **Recommendation:** Use `LinuxAiOPerf` as your default collector. Reach for raw `vmstat`/`iostat`/`pidstat` only when you need something it does not capture, or when you want to *watch* something live in a second terminal.
+{{< callout type="tip" title="Recommendation" >}}
+Use `LinuxAiOPerf` as your default collector. Reach for raw `vmstat` / `iostat` / `pidstat` only when you need something it does not capture, or when you want to *watch* something live in a second terminal.
+{{< /callout >}}
 
 ```bash
 # Download
@@ -154,7 +136,9 @@ ps aux | awk '$8 ~ /^[DZ]/'         # D-state (uninterruptible) or zombies
 | `s`  | Session leader |
 | `l`  | Multi-threaded |
 
-> **D-state processes are a red flag.** They're blocked in the kernel, usually on I/O. Check `/proc/<PID>/wchan` to see *what* they're waiting on.
+{{< callout type="warning" title="D-state processes are a red flag" >}}
+They're blocked in the kernel, usually on I/O. Check `/proc/<PID>/wchan` to see *what* they're waiting on.
+{{< /callout >}}
 
 ---
 
@@ -224,7 +208,9 @@ procs --------memory--------- --swap- ---io-- -system- ------cpu-----
 | `bi` / `bo` | Blocks in/out per second |
 | `us` / `sy` / `id` / `wa` | CPU user / kernel / idle / iowait % |
 
-> **Rule of thumb:** `si`/`so` > 0 means you're swapping. `wa` > 20% means I/O is the bottleneck. `r` > CPU count = run-queue saturation.
+{{< callout type="rule" >}}
+`si` / `so` > 0 means you're swapping. `wa` > 20% means I/O is the bottleneck. `r` > CPU count = run-queue saturation.
+{{< /callout >}}
 
 ---
 
@@ -264,7 +250,9 @@ pidstat -p <PID> -u 1   # Filter for one PID
 | `RSS` | Resident Set Size (kB) — **actually in physical RAM** |
 | `%MEM` | RSS as % of total RAM |
 
-> **Key insight:** `RSS` is real memory usage. `VSZ` can be much larger — virtual memory is cheap until you actually touch the pages.
+{{< callout type="info" title="Key insight" >}}
+`RSS` is real memory usage. `VSZ` can be much larger — virtual memory is cheap until you actually touch the pages.
+{{< /callout >}}
 
 ---
 
@@ -285,7 +273,9 @@ iostat -h 1           # Human-readable throughput
 | `aqu-sz` | Average queue depth |
 | `%util` | Device utilisation % — 100% = saturated |
 
-> **Rule of thumb:** `await` > 20 ms on SSD = problem. `%util` near 100% = bottleneck (but on multi-queue SSDs, `%util` can be misleading — trust `await` and queue depth).
+{{< callout type="rule" >}}
+`await` > 20 ms on SSD = problem. `%util` near 100% = bottleneck — but on multi-queue SSDs, `%util` can be misleading, so trust `await` and queue depth.
+{{< /callout >}}
 
 ---
 
@@ -301,7 +291,9 @@ htop                  # Colourful interactive (sudo apt install htop)
 
 `top` keys: `P` sort by CPU, `M` sort by memory, `1` toggle per-CPU, `d` change refresh, `k` kill PID, `q` quit.
 
-> **Use `available`, not `free`** in the `free` output — `available` includes reclaimable cache. Plain `free` is misleading on Linux.
+{{< callout type="tip" >}}
+Use **`available`**, not `free`, in the `free` output — `available` includes reclaimable cache. Plain `free` is misleading on Linux.
+{{< /callout >}}
 
 ---
 
@@ -326,7 +318,9 @@ lsof -i :443
 lsof /var/log/syslog
 ```
 
-> `strace` slows the target process down significantly. Don't leave it attached to a production-critical process for long.
+{{< callout type="warning" >}}
+`strace` slows the target process down significantly. Don't leave it attached to a production-critical process for long.
+{{< /callout >}}
 
 ---
 
@@ -359,7 +353,9 @@ The symptom is **intermittent**. You won't catch it live. The goal is to **arm c
 
 ## The golden rule
 
-> **Start collecting *before* the problem reproduces, not after.** If a customer says "it happened at 03:14 last night," your only chance of catching the next one is data that was already being written at 03:13.
+{{< callout type="rule" title="The golden rule" >}}
+Start collecting **before** the problem reproduces, not after. If a customer says "it happened at 03:14 last night," your only chance of catching the next one is data that was already being written at 03:13.
+{{< /callout >}}
 
 ## Option 1 (recommended): LinuxAiOPerf
 
@@ -409,7 +405,9 @@ while true; do
 done &
 ```
 
-> Each tool prints its own timestamp (`-t`, `-tt`, sar's default), which is essential for correlating across files when reviewing later.
+{{< callout type="tip" >}}
+Each tool prints its own timestamp (`-t`, `-tt`, `sar`'s default), which is essential for correlating across files when reviewing later.
+{{< /callout >}}
 
 ## Option 3: Let `sar` quietly record everything
 
@@ -487,7 +485,9 @@ awk '$6 > 500000' pidstat.log
 awk '$10 > 20' iostat.log
 ```
 
-> Always cross-reference the **timestamps** in your collected logs with `journalctl --since=... --until=...` and `dmesg -T`. The kernel ring buffer often shows OOM kills, hung tasks, or block-device errors that explain what the metrics were reacting to.
+{{< callout type="tip" title="Always cross-reference timestamps" >}}
+Correlate your collected logs with `journalctl --since=... --until=...` and `dmesg -T`. The kernel ring buffer often shows OOM kills, hung tasks, or block-device errors that explain what the metrics were reacting to.
+{{< /callout >}}
 
 ---
 

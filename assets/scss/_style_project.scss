@@ -26,3 +26,189 @@
 // Using DocSy's default styling - keeping only essential customizations
 
 // Using DocSy's default dark theme - no custom overrides
+
+/* =========================================================================
+   Knowledge-base custom components: callouts, hero, feature cards, tools
+   ========================================================================= */
+
+// --- Callouts -------------------------------------------------------------
+
+.kb-callout {
+  --kb-accent: #0d6efd;
+  --kb-bg: rgba(13, 110, 253, 0.08);
+  border-left: 4px solid var(--kb-accent);
+  background: var(--kb-bg);
+  border-radius: 0.375rem;
+  padding: 0.85rem 1rem;
+  margin: 1.25rem 0;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--kb-accent);
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  &__body > :last-child { margin-bottom: 0; }
+  &__body code { font-size: 0.9em; }
+}
+
+.kb-callout--tip     { --kb-accent: #16a34a; --kb-bg: rgba(22,163,74,0.10); }
+.kb-callout--rule    { --kb-accent: #d97706; --kb-bg: rgba(217,119,6,0.10); }
+.kb-callout--warning { --kb-accent: #f59e0b; --kb-bg: rgba(245,158,11,0.12); }
+.kb-callout--danger  { --kb-accent: #dc2626; --kb-bg: rgba(220,38,38,0.10); }
+.kb-callout--note    { --kb-accent: #0ea5e9; --kb-bg: rgba(14,165,233,0.10); }
+.kb-callout--info    { --kb-accent: #6366f1; --kb-bg: rgba(99,102,241,0.10); }
+
+[data-bs-theme="dark"] .kb-callout {
+  background: color-mix(in srgb, var(--kb-accent) 14%, transparent);
+}
+
+// --- Landing hero --------------------------------------------------------
+
+.kb-hero {
+  position: relative;
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+  margin: 1rem 0 2.5rem;
+  color: #fff;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(8,12,30,0.85), rgba(8,12,30,0.55)),
+    linear-gradient(120deg, #0b1437 0%, #112a5c 40%, #143d8a 100%);
+  background-size: cover;
+  background-position: center;
+
+  // If /images/hero.jpg exists it will override the gradient.
+  &[data-hero-image="true"] {
+    background-image:
+      linear-gradient(135deg, rgba(8,12,30,0.78), rgba(8,12,30,0.45)),
+      url('/images/hero.jpg');
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    line-height: 1.15;
+  }
+  &__subtitle {
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    opacity: 0.9;
+    max-width: 60ch;
+  }
+  &__cta {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  &__cta .btn {
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    font-weight: 600;
+  }
+}
+
+// --- Feature cards (grid) ------------------------------------------------
+
+.kb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.kb-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--bs-tertiary-bg, #f8f9fa);
+  border: 1px solid var(--bs-border-color, #e9ecef);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-color: var(--bs-primary, #0d6efd);
+    text-decoration: none;
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    color: var(--bs-primary, #0d6efd);
+  }
+  &__title { font-size: 1.1rem; font-weight: 600; }
+  &__desc  { font-size: 0.9rem; opacity: 0.8; }
+}
+
+[data-bs-theme="dark"] .kb-card {
+  background: #111827;
+  border-color: #1f2937;
+  &:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+}
+
+// --- Tool showcase -------------------------------------------------------
+
+.kb-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.kb-tool {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--bs-tertiary-bg, #f8f9fa);
+  border: 1px solid var(--bs-border-color, #e9ecef);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+    text-decoration: none;
+  }
+
+  &__img {
+    aspect-ratio: 3 / 2;
+    background-size: cover;
+    background-position: center;
+    background-color: #0b1437;
+    background-image: linear-gradient(135deg, #0b1437, #143d8a);
+  }
+  &__body  { padding: 1rem 1.1rem 1.15rem; }
+  &__name  {
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  &__desc  { font-size: 0.9rem; opacity: 0.85; margin-top: 0.25rem; }
+}
+
+[data-bs-theme="dark"] .kb-tool {
+  background: #111827;
+  border-color: #1f2937;
+}
+
+// --- Mermaid: light/dark friendly container ------------------------------
+
+pre.mermaid {
+  background: transparent;
+  border: none;
+  text-align: center;
+  margin: 1.25rem 0;
+}

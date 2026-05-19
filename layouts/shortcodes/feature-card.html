@@ -1,0 +1,16 @@
+{{- /*
+  Feature card shortcode (for landing page).
+  Usage:
+    {{< feature-card title="Linux" icon="fa-linux" iconStyle="brands" href="/linux/" desc="..." >}}
+*/ -}}
+{{- $title     := .Get "title" -}}
+{{- $icon      := .Get "icon" | default "fa-circle" -}}
+{{- $iconStyle := .Get "iconStyle" | default "solid" -}}
+{{- $href      := .Get "href" | default "#" -}}
+{{- $desc      := .Get "desc" -}}
+{{- $faPrefix  := cond (eq $iconStyle "brands") "fab" "fas" -}}
+<a class="kb-card" href="{{ $href }}">
+  <div class="kb-card__icon"><i class="{{ $faPrefix }} {{ $icon }}" aria-hidden="true"></i></div>
+  <div class="kb-card__title">{{ $title }}</div>
+  {{- with $desc }}<div class="kb-card__desc">{{ . }}</div>{{ end }}
+</a>
