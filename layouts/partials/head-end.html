@@ -1,0 +1,12 @@
+{{/* Social sharing meta — force large Twitter card and an absolute og:image. */}}
+{{ $img := "" }}
+{{ with .Params.images }}{{ $img = index . 0 }}{{ end }}
+{{ if not $img }}{{ with site.Params.images }}{{ $img = index . 0 }}{{ end }}{{ end }}
+{{ if $img }}
+{{ $absImg := $img | absURL }}
+<meta property="og:image" content="{{ $absImg }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $absImg }}">
+{{ end }}
