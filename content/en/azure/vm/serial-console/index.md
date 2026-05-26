@@ -1,7 +1,7 @@
 ---
-title: Enable Azure Serial Console and GRUB Menu on Linux VMs
+title: How to Enable Azure Serial Console and GRUB on Linux VMs
 linkTitle: Serial Console (Linux)
-description: Configure GRUB and systemd to expose the GRUB menu and kernel logs over Azure Serial Console on Linux VMs, including migrated images.
+description: Learn how to enable Azure Serial Console and the GRUB menu on Linux VMs so you can recover systems when SSH or network access is unavailable.
 weight: 20
 type: docs
 date: 2025-10-14
@@ -188,5 +188,12 @@ sudo grub2-editenv list 2>/dev/null || true
 ## References
 
 - Azure Serial Console for Linux (Microsoft Learn): https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/serial-console-linux
+- Proactive GRUB and serial console configuration for Linux on Azure: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/serial-console-grub-proactive-configuration
+
+## Related reading
+
+- [Azure Virtual Machines](/azure/vm/) for more VM-focused troubleshooting and tooling
+- [Profile Fetcher for Linux Azure VM](/azure/vm/getvmprofile/) when you need a quick local metadata snapshot during incident response
+- [How to Troubleshoot Linux Performance — Field Playbook](/linux/admin/linux-performance-playbook/) if the VM boots but the issue is now performance rather than access
 
 

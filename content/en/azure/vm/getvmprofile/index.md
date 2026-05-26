@@ -1,7 +1,7 @@
 ---
-title: Profile Fetcher for Linux Azure VM
+title: How to Inspect Azure VM Metadata with Profile Fetcher
 linkTitle: VM Profile Fetcher
-description: Collect Azure VM instance metadata in a single, readable summary.
+description: Learn how to inspect Azure VM instance metadata quickly with a small Python script that summarizes IMDS output in a readable format.
 weight: 10
 type: docs
 author: Samuel Matildes
@@ -40,3 +40,9 @@ This command downloads the script from the GitHub repository and runs it using P
 The Profile Fetcher for Azure VM script provides a straightforward and effective way to retrieve and display detailed information about your Azure VMs. By using this script, administrators and developers can quickly access important VM metadata, making it easier to manage and troubleshoot their Azure environments.
 
 For more details and to access the script, visit the  [**GitHub Repository:**](https://github.com/samatild/azvmprofilefetcher).
+
+## Related reading
+
+- [Azure Virtual Machines](/azure/vm/) for more VM-focused tools and recovery guidance
+- [How to Enable Azure Serial Console and GRUB on Linux VMs](/azure/vm/serial-console/) when you need console access for a broken or unreachable VM
+- [How to Troubleshoot Linux Performance — Field Playbook](/linux/admin/linux-performance-playbook/) if you are already on the VM and the next step is system performance triage

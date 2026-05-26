@@ -1,6 +1,6 @@
 ---
-title: Linux Benchmarking Made Easy with Tux Toaster
-description: A practical guide to stress testing and benchmarking Linux systems using the Tux Toaster toolkit.
+title: How to Benchmark Linux with Tux Toaster
+description: Learn how to benchmark and stress test Linux CPU, memory, disk, and network performance with Tux Toaster.
 date: 2025-10-17
 type: docs
 author: Samuel Matildes
@@ -157,6 +157,12 @@ Tips:
 - Project: [`github.com/samatild/tuxtoaster`](https://github.com/samatild/tuxtoaster)
 - PyPI: [`pypi.org/project/tuxtoaster`](https://pypi.org/project/tuxtoaster)
 - Issues/feedback: open a GitHub issue with your logs and command line
+
+## Related reading
+
+- [How to Troubleshoot Linux Performance — Field Playbook](/linux/admin/linux-performance-playbook/) for deciding whether to triage live or collect data in the background
+- [Streamlining Linux Diagnostics with SOSParser](/linux/admin/sosparser-analysis-tool/) when you want post-collection analysis and reporting
+- [Windows EVTX Export Guide](/windows/admin/evtxparser/) if you also need a fast event-log-to-CSV workflow on Windows
 
 ---
 

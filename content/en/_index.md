@@ -8,9 +8,9 @@ type: docs
 <section class="kb-hero" data-hero-image="true">
   <h1 class="kb-hero__title">Samuel Matildes — Knowledge Base</h1>
   <p class="kb-hero__subtitle">
-    Field notes, playbooks, and tools from years of running Linux at scale on
-    Azure. Practical content first — theory only when it helps you fix the box
-    in front of you.
+    Field notes, playbooks, and tools from production work across Linux,
+    Windows, Azure, and Kubernetes. Practical content first — theory only when
+    it helps you fix the box in front of you.
   </p>
   <div class="kb-hero__cta">
     <a class="btn btn-primary" href="/linux/"><i class="fab fa-linux"></i>&nbsp; Explore Linux</a>
@@ -22,6 +22,7 @@ type: docs
 
 <div class="kb-grid">
 {{< feature-card title="Linux"                icon="fa-linux"        iconStyle="brands" href="/linux/"                desc="Kernel internals, performance, diagnostics, admin tooling." >}}
+{{< feature-card title="Windows"              icon="fa-windows"      iconStyle="brands" href="/windows/"              desc="Event logs, administration workflows, and practical Windows tooling." >}}
 {{< feature-card title="Azure"                icon="fa-microsoft"    iconStyle="brands" href="/azure/"                desc="VM troubleshooting, serial console, profiling on Azure." >}}
 {{< feature-card title="Kubernetes"           icon="fa-dharmachakra"                    href="/kubernetes/"           desc="Hands-on cluster recipes and walk-throughs." >}}
 {{< feature-card title="Software Engineering" icon="fa-code"                            href="/software-engineering/" desc="Patterns, optimisation, lessons from production code." >}}
@@ -46,6 +47,12 @@ Open-source companions to the content on this site.
               image="/images/tools/sosparser.png"
               repo="https://github.com/samatild/SOSParser"
               desc="Turn sosreport / supportconfig archives into interactive HTML reports." >}}
+
+{{< tool-card name="evtxparser"
+              image="/windows/admin/evtxparser/images/evtxparser.png"
+              repo="https://github.com/samatild/evtxparser"
+              href="/windows/admin/evtxparser/"
+              desc="Export Windows .evtx event logs to CSV with a fast, streaming CLI." >}}
 </div>
 
 ## About this site

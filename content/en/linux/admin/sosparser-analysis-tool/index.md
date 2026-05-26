@@ -1,6 +1,6 @@
 ---
-title: Streamlining Linux Diagnostics with SOSParser
-description: A comprehensive guide to using SOSParser, an automated analysis tool for Linux sosreport and supportconfig diagnostic files.
+title: How to Analyze Linux sosreport and supportconfig with SOSParser
+description: Learn how to analyze Linux sosreport and supportconfig files with SOSParser to generate structured, searchable diagnostic reports.
 date: 2026-01-06
 type: docs
 author: Samuel Matildes
@@ -285,3 +285,9 @@ Whether you're managing a single server or overseeing enterprise-scale deploymen
 - Project Repository: [`github.com/samatild/SOSParser`](https://github.com/samatild/SOSParser)
 - Docker Hub: [`hub.docker.com/r/samuelmatildes/sosparser`](https://hub.docker.com/r/samuelmatildes/sosparser)
 - Issue Tracker: [GitHub Issues](https://github.com/samatild/SOSParser/issues)
+
+## Related reading
+
+- [How to Troubleshoot Linux Performance — Field Playbook](/linux/admin/linux-performance-playbook/) for the live-triage and background-collection side of Linux investigations
+- [How to Benchmark Linux with Tux Toaster](/linux/admin/benchmarking-with-tuxtoaster/) if you need to generate repeatable load before collecting diagnostics
+- [Windows EVTX Export Guide](/windows/admin/evtxparser/) for structured event log exports on Windows systems

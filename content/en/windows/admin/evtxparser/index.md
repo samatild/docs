@@ -1,6 +1,6 @@
 ---
-title: Fast Windows Event Log Exports with evtxparser
-description: Convert Windows .evtx event logs to CSV with a fast, streaming Python CLI built for large exports and repeatable analysis.
+title: How to Export Windows EVTX to CSV with evtxparser
+description: Learn how to export Windows .evtx event logs to CSV with evtxparser, a fast streaming Python CLI for incident response, forensics, and repeatable analysis.
 date: 2026-05-26
 type: docs
 author: Samuel Matildes
@@ -18,9 +18,10 @@ tags: [windows, evtx, eventlog, forensics, incident-response, python, cli, csv, 
 </p>
 
 
-<i class="fas fa-file-alt" aria-hidden="true"></i> Turn Windows Event Viewer logs into clean CSV output without dragging a GUI into the workflow.
+<i class="fas fa-file-alt" aria-hidden="true"></i> Export Windows Event Viewer `.evtx` logs to clean CSV output without dragging a GUI into the workflow.
 
 ![evtxparser example](images/evtxparser.png)
+
 ## What is evtxparser?
 
 [`evtxparser`](https://github.com/samatild/evtxparser) is a focused Python CLI for exporting Windows `.evtx` files to CSV. It is designed for the cases where you do not want a full GUI workflow or a heavyweight parsing pipeline: open the log, stream records, and write rows immediately.
@@ -161,6 +162,12 @@ From there you can:
 - Keep `raw_xml` for the records that need deeper inspection
 
 That is usually much faster than re-opening Event Viewer again and again for the same dataset.
+
+## Related reading
+
+- [Windows Administration](/windows/admin/) for the growing collection of Windows tooling and workflows
+- [Linux Performance — Field Playbook](/linux/admin/linux-performance-playbook/) for a similar task-first troubleshooting style on Linux
+- [Documentation Home](/) to browse more tools and operational guides
 
 ## Closing thoughts
 

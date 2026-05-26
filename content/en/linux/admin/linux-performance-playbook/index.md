@@ -1,6 +1,6 @@
 ---
-title: Linux Performance — Field Playbook & Cheatsheet
-description: A practical, two-track playbook for Linux performance investigations. Decide quickly between live triage and background data collection, then drive the diagnosis with the right tool at the right time.
+title: How to Troubleshoot Linux Performance — Field Playbook
+description: Learn how to troubleshoot Linux performance issues with a practical field playbook for live triage, intermittent problems, vmstat, iostat, pidstat, sar, and more.
 date: 2026-05-19
 type: docs
 author: Samuel Matildes
@@ -526,3 +526,9 @@ journalctl -k --since "1 hour ago" | grep -iE 'oom|hung|error'
 - **For live triage**, run the 60-second sweep: `vmstat`, `mpstat`, `pidstat -urd`, `iostat -xz`, `free -h`. Stop as soon as the bottleneck is obvious.
 - **For intermittent issues**, deploy [`LinuxAiOPerf`](https://github.com/samatild/LinuxAiOPerf) — or arm `sar` plus a handful of `tee`'d collectors — *before* the next occurrence and mine the logs after.
 - Always **correlate metrics with `dmesg -T` and `journalctl`**. The kernel usually tells you what the numbers were reacting to.
+
+## Related reading
+
+- [Linux Benchmarking Made Easy with Tux Toaster](/linux/admin/benchmarking-with-tuxtoaster/) when you want to generate controlled CPU, memory, disk, or network load
+- [Streamlining Linux Diagnostics with SOSParser](/linux/admin/sosparser-analysis-tool/) when you need to analyze collected support data after the fact
+- [Windows EVTX Export Guide](/windows/admin/evtxparser/) if part of your investigation crosses into Windows event logs
