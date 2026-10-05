@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+  <title id="title">Hermes, Honcho, LiteLLM Redis cache and LLM endpoint architecture</title>
+  <desc id="desc">Hermes sends memory requests to Honcho in Kubernetes. Honcho stores memory in PostgreSQL with pgvector and sends model requests through LiteLLM. LiteLLM uses Redis for proxy cache and coordination before routing requests to GitHub Copilot model endpoints.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1e293b" stroke-width=".5"/></pattern>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#22d3ee"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#34d399"/></marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#fb923c"/></marker>
+    <style>
+      .title{font:700 24px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#f8fafc}.sub{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#94a3b8}.label{font:700 18px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#e2e8f0}.small{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#cbd5e1}.tiny{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#94a3b8}.box{stroke-width:2;rx:12}.arrow{fill:none;stroke-width:2.5}.boundary{fill:none;stroke:#fbbf24;stroke-width:1.5;stroke-dasharray:8 5;rx:18}
+    </style>
+  </defs>
+  <rect width="1200" height="690" fill="#020617"/><rect width="1200" height="690" fill="url(#grid)"/>
+  <text x="40" y="52" class="title">Honcho memory via LiteLLM — request and data flow</text>
+  <text x="40" y="79" class="sub">All names, endpoints and credentials below are illustrative.</text>
+
+  <!-- Connections sit behind service boxes. -->
+  <path class="arrow" d="M250 295H315" stroke="#22d3ee" marker-end="url(#arrow-cyan)"/>
+  <path class="arrow" d="M525 260H610" stroke="#34d399" marker-end="url(#arrow-green)"/>
+  <path class="arrow" d="M610 330H525" stroke="#a78bfa" marker-end="url(#arrow-violet)"/>
+  <path class="arrow" d="M830 295H875" stroke="#34d399" marker-end="url(#arrow-green)"/>
+  <path class="arrow" d="M525 350L650 505" stroke="#a78bfa" marker-end="url(#arrow-violet)"/>
+  <path class="arrow" d="M720 370V470H435V505" stroke="#fb923c" marker-end="url(#arrow-orange)"/>
+
+  <rect x="40" y="220" width="210" height="150" fill="#0f172a" class="box"/><rect x="40" y="220" width="210" height="150" fill="rgba(8,51,68,.4)" stroke="#22d3ee" class="box"/>
+  <text x="65" y="265" class="label">Hermes Agent</text><text x="65" y="295" class="small">Honcho client / tools</text><text x="65" y="324" class="tiny">authenticated memory calls</text>
+
+  <rect x="290" y="145" width="270" height="330" class="boundary"/>
+  <text x="312" y="180" class="small" fill="#fbbf24">Kubernetes namespace</text>
+  <rect x="315" y="220" width="210" height="150" fill="#0f172a" class="box"/><rect x="315" y="220" width="210" height="150" fill="rgba(6,78,59,.4)" stroke="#34d399" class="box"/>
+  <text x="340" y="260" class="label">Honcho API</text><text x="340" y="290" class="small">query · profile · memory</text><text x="340" y="319" class="tiny">JWT-protected service</text>
+  <rect x="315" y="395" width="210" height="55" fill="#0f172a" class="box"/><rect x="315" y="395" width="210" height="55" fill="rgba(6,78,59,.4)" stroke="#34d399" class="box"/>
+  <text x="340" y="429" class="label">Deriver worker</text>
+
+  <rect x="610" y="220" width="220" height="150" fill="#0f172a" class="box"/><rect x="610" y="220" width="220" height="150" fill="rgba(6,78,59,.4)" stroke="#34d399" class="box"/>
+  <text x="635" y="260" class="label">LiteLLM Proxy</text><text x="635" y="290" class="small">model aliases · policy</text><text x="635" y="319" class="tiny">OpenAI-compatible /v1</text>
+
+  <rect x="875" y="175" width="285" height="240" fill="#0f172a" class="box"/><rect x="875" y="175" width="285" height="240" fill="rgba(30,41,59,.5)" stroke="#94a3b8" class="box"/>
+  <text x="900" y="220" class="label">LLM endpoints</text><text x="900" y="255" class="small">GitHub Copilot</text><text x="900" y="279" class="small">or provider APIs</text><text x="900" y="314" class="tiny">fast extraction · deep reasoning</text><text x="900" y="338" class="tiny">embeddings</text><text x="900" y="380" class="tiny">LiteLLM isolates clients from providers</text>
+
+  <rect x="315" y="505" width="240" height="135" fill="#0f172a" class="box"/><rect x="315" y="505" width="240" height="135" fill="rgba(251,146,60,.18)" stroke="#fb923c" class="box"/>
+  <text x="340" y="545" class="label">Redis for LiteLLM</text><text x="340" y="574" class="small">shared proxy cache</text><text x="340" y="602" class="tiny">rate limits · routing</text><text x="340" y="622" class="tiny">cache invalidation</text>
+
+  <rect x="610" y="505" width="260" height="135" fill="#0f172a" class="box"/><rect x="610" y="505" width="260" height="135" fill="rgba(76,29,149,.4)" stroke="#a78bfa" class="box"/>
+  <text x="635" y="545" class="label">PostgreSQL + pgvector</text><text x="635" y="574" class="small">durable memory + vectors</text><text x="635" y="603" class="tiny">source of truth for Honcho data</text>
+
+</svg>

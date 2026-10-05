@@ -285,6 +285,21 @@ pre.mermaid {
   margin: 1.25rem 0;
 }
 
+// Keep the diagram within the prose column; the compact SVG itself supplies
+// the larger, more legible presentation without overflowing the page.
+.td-content .honcho-architecture {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0 2rem;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* =========================================================================
    Dark theme polish — palette tuning, contrast, accents
    ========================================================================= */
