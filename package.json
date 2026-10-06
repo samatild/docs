@@ -4,7 +4,7 @@
   "version.next": "1.0.1-dev-unreleased",
   "description": "Samuel Matildes Knowledge Base and Documentation.",
   "repository": "github:samatild/docs",
-  "homepage": "https://docs.matildes.dev",
+  "homepage": "https://matildes.dev",
   "author": "Samuel Matildes",
   "license": "MIT",
   "bugs": "https://github.com/samatild/docs/issues",
