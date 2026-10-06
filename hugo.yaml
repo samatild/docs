@@ -74,7 +74,10 @@ outputs:
   section: [HTML, print, RSS]
 
 params:
-    
+  # AdSense publisher ID. Its public `ca-` form is required by the loader script.
+  adsense:
+    client: "ca-pub-4422057958984608"
+
   mainSections: ["docs"]
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
@@ -174,11 +177,11 @@ params:
 
   links:
     # End user relevant links. These will show up on left side of footer and in the community page if you have one.
-    # user:
-    #   - name: User mailing list
-    #     url: https://example.org/mail
-    #     icon: fa fa-envelope
-    #     desc: Discussion and help from your fellow users
+    user:
+      - name: Privacy & ads
+        url: /privacy/
+        icon: fa fa-shield-alt
+        desc: How this site handles advertising, cookies, and technical data.
     #   - name: Twitter
     #     url: https://example.org/twitter
     #     icon: fab fa-twitter

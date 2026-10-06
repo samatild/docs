@@ -1,0 +1,5 @@
+{{/* Docsy 0.12 invokes this hook at the end of <head>. */}}
+{{ partial "head-end.html" . }}
+{{ with site.Params.adsense.client }}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . | urlquery }}" crossorigin="anonymous"></script>
+{{ end }}
