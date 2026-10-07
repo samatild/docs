@@ -7,6 +7,8 @@ author: Samuel Matildes
 tags: [kubernetes, microk8s, ai-infrastructure, agent-memory, honcho, hermes, litellm, llm-gateway, redis, github-copilot, pgvector, vector-database, memory, llm, self-hosted]
 keywords: ["AI infrastructure Kubernetes", "agent memory Kubernetes", "Honcho Kubernetes", "Honcho LiteLLM", "LiteLLM GitHub Copilot", "LiteLLM Redis cache", "Honcho pgvector", "Hermes persistent memory", "Kubernetes LLM gateway"]
 images: [architecture.svg]
+aliases:
+  - /kubernetes/honcho-litellm-github-copilot/
 ---
 
 <i class="fas fa-brain" aria-hidden="true"></i> A self-hosted memory service for Hermes, with LiteLLM as the model gateway and GitHub Copilot as an upstream provider.
@@ -169,7 +171,7 @@ LiteLLM's GitHub Copilot provider documentation shows the same pattern: give the
 Place the two screenshots provided with this article in this page bundle:
 
 ```text
-content/en/kubernetes/honcho-litellm-github-copilot/images/
+content/en/ai/honcho-litellm-github-copilot/images/
 ├── litellm1.jpg  # honcho-embeddings
 └── litellm2.jpg  # honcho-reasoning
 ```

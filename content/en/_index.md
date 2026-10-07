@@ -9,13 +9,13 @@ type: docs
   <h1 class="kb-hero__title">Production troubleshooting &amp; automation</h1>
   <p class="kb-hero__subtitle">
     Field notes, diagnostic playbooks, performance tooling, and practical
-    infrastructure patterns for Linux, Windows, Azure, and Kubernetes.
+    infrastructure patterns for Linux, Windows, Azure, Kubernetes, and AI.
     Production lessons first — theory only when it helps fix the box in front
     of you.
   </p>
   <div class="kb-hero__cta">
     <a class="btn btn-primary" href="#featured-guides"><i class="fas fa-compass" aria-hidden="true"></i>&nbsp; Browse featured guides</a>
-    <a class="btn btn-outline-light" href="/kubernetes/honcho-litellm-github-copilot/"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; Latest guide</a>
+    <a class="btn btn-outline-light" href="/ai/honcho-litellm-github-copilot/"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; Latest guide</a>
     <a class="btn btn-outline-light" href="https://github.com/samatild" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i>&nbsp; GitHub</a>
   </div>
 </section>
@@ -27,7 +27,7 @@ site today.
 
 <div class="kb-grid kb-grid--guides">
 {{< feature-card title="Linux Performance — Field Playbook" icon="fa-gauge-high" href="/linux/admin/linux-performance-playbook/" desc="A practical workflow for investigating Linux performance from symptoms to evidence." >}}
-{{< feature-card title="Self-Host Honcho with LiteLLM" icon="fa-brain" href="/kubernetes/honcho-litellm-github-copilot/" desc="Persistent agent memory, vector retrieval, and provider-neutral model routing on Kubernetes." >}}
+{{< feature-card title="Self-Host Honcho with LiteLLM" icon="fa-brain" href="/ai/honcho-litellm-github-copilot/" desc="Persistent agent memory, vector retrieval, and provider-neutral model routing on Kubernetes." >}}
 {{< feature-card title="MicroK8s with Traefik" icon="fa-dharmachakra" href="/kubernetes/microk8s-simple-implementation/" desc="A practical private and public application deployment pattern for a single-node cluster." >}}
 </div>
 
@@ -37,7 +37,8 @@ site today.
 {{< feature-card title="Linux"                icon="fa-linux"        iconStyle="brands" href="/linux/"                desc="Kernel internals, performance, diagnostics, and admin tooling." >}}
 {{< feature-card title="Windows"              icon="fa-windows"      iconStyle="brands" href="/windows/"              desc="Event logs, administration workflows, and practical Windows tooling." >}}
 {{< feature-card title="Azure"                icon="fa-microsoft"    iconStyle="brands" href="/azure/"                desc="VM troubleshooting, serial console, and profiling on Azure." >}}
-{{< feature-card title="Kubernetes"           icon="fa-dharmachakra"                    href="/kubernetes/"           desc="Cluster recipes, ingress, and AI / agent infrastructure patterns." >}}
+{{< feature-card title="Kubernetes"           icon="fa-dharmachakra"                    href="/kubernetes/"           desc="Cluster recipes, ingress, and practical application deployment patterns." >}}
+{{< feature-card title="AI"                    icon="fa-brain"                           href="/ai/"                   desc="Self-hosted agents, durable memory, and model gateways." >}}
 {{< feature-card title="Software Engineering" icon="fa-code"                            href="/software-engineering/" desc="Patterns, optimisation, and lessons from production code." >}}
 </div>
 
@@ -75,7 +76,7 @@ Open-source tools built from recurring production troubleshooting problems.
 ## Recently updated
 
 <div class="kb-update-list">
-  <a class="kb-update" href="/kubernetes/honcho-litellm-github-copilot/">
+  <a class="kb-update" href="/ai/honcho-litellm-github-copilot/">
     <i class="fas fa-brain" aria-hidden="true"></i>
     <span><strong>Honcho + LiteLLM on Kubernetes</strong><small>Persistent agent memory, pgvector, Redis cache, and model routing.</small></span>
   </a>
